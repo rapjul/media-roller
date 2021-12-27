@@ -1,4 +1,4 @@
-FROM golang:1.13.6-alpine3.11 as builder
+FROM golang:1.17.5-alpine3.15 as builder
 
 RUN apk add --no-cache curl
 
@@ -85,7 +85,7 @@ RUN go mod download
 RUN go build -x -o media-roller ./src
 
 # youtube-dl needs python
-FROM python:3.8.1-alpine3.11
+FROM python:3.10.1-alpine3.15
 
 # This is where the downloaded files will be saved in the container.
 ENV MR_DOWNLOAD_DIR="/download"
