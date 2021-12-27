@@ -1,0 +1,14 @@
+---
+version: "3"
+services:
+  media-roller:
+    build: .
+    container_name: media-roller
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Chicago
+      - MR_DOWNLOAD_DIR=
+    ports:
+      - 3000:3000
